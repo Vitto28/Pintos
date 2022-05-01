@@ -1,0 +1,1468 @@
+Copying tests/userprog/write-bad-ptr to scratch partition...
+Copying ../../tests/userprog/sample.txt to scratch partition...
+warning: can't find squish-pty, so terminal input will fail
+bochs -q
+PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'write-bad-ptr' into the file system...
+Putting 'sample.txt' into the file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 210 ticks
+Thread: 30 idle ticks, 178 kernel ticks, 8 user ticks
+hda2 (filesys): 87 reads, 212 writes
+hda3 (scratch): 102 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=74697277 error=00000000
+ eax=00000024 ebx=30656469 ecx=00000780 edx=000003d4
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 274 ticks
+Thread: 30 idle ticks, 223 kernel ticks, 21 user ticks
+hda2 (filesys): 88 reads, 212 writes
+hda3 (scratch): 102 reads, 2 writes
+Page fauPage fault at 0x30656481: not present error reading page in kernel context.
+Interrupt Page fault at 0xccccccd0: not present e0x0e (#PF Page-Fault Exception) at eip=rror writing page in kernel context.
+Inte0xc00249e5
+ cr2=30656481 error=000000rrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002800
+ eax=00000024 ebx=399f
+ cr2=ccccccd0 error=00000002
+0656469 ecx=00000780 edx=000003d4
+ eax=c010704c ebx=c010704c ecx=cccccccc ed esi=00000005 edi=c002e1f5 esp=c002f294x=c010704c
+ esi=c0036120 edi=c ebp=c000ef20
+ cs=0008 ds=0010 es=000107000 esp=00000000 ebp=c0036138
+ cs=10 ss=50d4
+Page fault at 0xcccccce0:0008 ds=0010 es=0010 ss=0000
+Page faul not present error reading page in kernel context.
+t at 0xccccccd8: not present error reading Interrupt 0x0e (#PF Page-Fault Exceptionpage in kernel context.
+Interrupt 0x0e () at eip=0xc002cae3
+ cr2=ccccccd8 e#PF Page-Fault Exception) at eip=0xc002c743
+rror=00000000
+ eax=cccccccc ebx= cr2=ccccccd8 error=00000000
+ eax=cc010704c ecx=00000780 edx=000003d4
+ ccccccc ebx=cccccccc ecx=00000780 edx=000003d4
+esi=00000064 edi=c002e123 esp=00000010  esi=00000064 edi=c002e123 esp=00000010 eebp=c000ecb4
+ cs=0008 ds=0010 ebp=c010bb6c
+ cs=0008 ds=0010 es=001s=0010 ss=0010
+Page fault at 0xc0 ss=0010
+Page fault at 0xccccccd8: ncccccd8: not present error reading page in kernel contot present error reading page in kernel conext.
+Interrupt 0x0e (#PF Page-Fault Exceptext.
+Interrupt 0x0e (#PF Page-Fault Excetion) at eip=0xc002c743
+ cr2=ccccccption) at eip=0xc002c743
+ cr2=cccccd8 error=00000000
+ eax=cccccccc ebx=cd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esicccccccc ecx=00000780 edx=000003d4
+ =00000064 edi=c002e123 esp=0000006c ebp=c000ead8esi=00000064 edi=c002e123 esp=000000
+ cs=0008 ds=0010 es=0010 ss=ea08
+6c ebp=c010b9d0
+ cs=0008 Page fault at 0xccccccd8: not present error reds=0010 es=0010 ss=b900
+Page fault ading page in kernel context.
+Interrupt 0at 0xccccccd8: not present error reading page in kernx0e (#PF Page-Fault Exception) at eip=0el context.
+Interrupt 0x0e (#PF Page-Fauxc002c743
+ cr2=ccccccd8 error=0000000lt Exception) at eip=0xc002c743
+ cr2=0
+ eax=cccccccc ebx=cccccccc ecx=0ccccccd8 error=00000000
+ eax=ccccccc000001e edx=000003f8
+ esi=00000064 edi=c ebx=cccccccc ecx=00000024 edx=000003f8
+c002e123 esp=000007ce ebp=c000e93c
+ esi=00000064 edi=c002e123 esp=000007a7 ebp= cs=0008 ds=0010 es=0010 ss=006e
+c010b834
+ cs=0008 ds=0010 es=0Page fault at 0xccccccd8: not present error reading p010 ss=0000
+Page fault atage in kernel context.
+Interrupt 0x0e (#P 0xccccccd8: not present error reading page in kerneF Page-Fault Exception) at eip=0xc002c7l context.
+Interrupt 0x0e (#PF Page-Fault43
+ cr2=ccccccd8 error=00000000
+ Exception) at eip=0xc002c743
+ eax=cccccccc ebx=cccccccc ecx=0000002c edx=00 cr2=ccccccd8 error=00000000
+ eax=0003f8
+ esi=00000064 edi=c002e123 espcccccccc ebx=cccccccc ecx=0000000b edx=000003f8
+=000007a2 ebp=c000e7a0
+ c esi=00000064 edi=c002e123 esp=c0021d8e ebp=c0s=0008 ds=0010 es=0010 ss=006e
+Page10b698
+ cs=0008 ds=0010 es=0010 ss=b5 fault at 0xccccccd8: not present error reading pa14
+Page fault at 0xccccccdPiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0010 es=0010 ss=50d4
+Kernel PANIC at ../../userprog/exception.c:100 in kill(): Kernel bug - unexpected interrupt in kernel
+Call stack: 0xc002851e 0xc00249e5.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Kernel PANIC recursion at ../../filesys/inode.c:335 in inode_allow_write().
+Timer: 183 ticks
+Thread: 30 idle ticks, 143 kernel ticks, 10 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fauload: wrlt at 0x30656481: not preseite-bad-ptr: open failed
+Page fault at 0xccccccd0: not present error writing page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002899f
+ cr2=ccccccd0 error=00000002
+ eax=c010704c ebx=c010704c ecx=cccccccc edx=c010704c
+ esi=c0036120 edi=c0107000 esp=00000082 ebp=c0036138
+ cs=0008 ds=0010 es=0010 ss=59ee
+Page fault at 0xcccccce0: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002cae3
+ cr2=cccccce0 error=00000000
+ eax=cccccccc ebx=c010704c ecx=00000780 edx=000003d4
+ esi=00000064 edi=c002e123 esp=c0000010 ebp=c000e808
+ cs=0008 ds=0010 es=0010 ss=0024
+Page fault at 0xccccccd8: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc002c743
+ cr2=ccccccd8 error=00000000
+ eax=cccccccc ebx=cccccccc ecx=0000000c edx=000003f8
+ esi=00000064 edi=c002e123 esp=000007c4 ebp=c000e62c
+ cs=0008 ds=0010 es=0010 ss=006f
+Page fault at PiLo hda1
+Loading..........
+Kernel command line: -q -f extract run write-bad-ptr
+Pintos booting with 4,096 kB RAM...
+383 pages available in kernel pool.
+383 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+hda: 5,040 sectors (2 MB), model "BXHD00011", serial "Generic 1234"
+hda1: 167 sectors (83 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 103 sectors (51 kB), Pintos scratch (22)
+filesys: using hda2
+scratch: using hda3
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Erasing ustar archive...
+Executing 'write-bad-ptr':
+Execution of 'write-bad-ptr' complete.
+Timer: 129 ticks
+Thread: 30 idle ticks, 98 kernel ticks, 8 user ticks
+hda2 (filesys): 20 reads, 6 writes
+hda3 (scratch): 1 reads, 2 writes
+Page fault at 0x30656481: not present error reading page in kernel context.
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc00249e5
+ cr2=30656481 error=00000000
+ eax=00000022 ebx=30656469 ecx=c0034c90 edx=c010b034
+ esi=00000005 edi=c0034b34 esp=c002f294 ebp=c000eff8
+ cs=0008 ds=0Simulation terminated due to kernel panic.
