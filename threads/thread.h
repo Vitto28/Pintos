@@ -105,6 +105,10 @@ struct thread
     /* Time when we wanna wake up a thread (Assignment 2) */  
     int64_t wakeupattick;
 
+    /* Project 4 */
+    tid_t parent_id;
+    bool waited_on; // if parent is waiting on this thread
+
     /* Owned by thread.c. */
     unsigned magic;                     /* Detects stack overflow. */
   };
@@ -146,5 +150,8 @@ int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
 /* Assignment 2 */
 void thread_sleep(int64_t);
+
+/* Project 4 */
+struct thread * find_process_by_id(tid_t id);
 
 #endif /* threads/thread.h */

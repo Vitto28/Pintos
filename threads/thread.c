@@ -477,6 +477,10 @@ static void init_thread(struct thread * t, const char * name, int priority) {
     strlcpy(t->name, name, sizeof t->name);
     t->stack = (uint8_t *)t + PGSIZE;
 
+    // TODO: Setup parent-child relationship
+    t->parent_id = thread_current()->tid;
+    t->waited_on = false;
+
     if (thread_mlfqs)
         t->priority = calculate_priority(0, 0);
     else
@@ -628,3 +632,15 @@ void check_for_sleeping_threads() {
 /* Offset of `stack' member within `struct thread'.
    Used by switch.S, which can't figure it out on its own. */
 uint32_t thread_stack_ofs = offsetof(struct thread, stack);
+
+/* Used in userprog/process.c's process_wait() */
+struct thread * find_process_by_id(tid_t id) {
+  struct list_elem * e;
+  for(e = list_begin(&all_list); e != list_end(&all_list); e = list_next(e)) {
+      struct thread * t = list_entry(e, struct thread, allelem);
+      if(t->tid == id) {
+          return t;
+      }
+  }
+  return NULL;
+}

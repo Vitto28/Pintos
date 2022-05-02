@@ -133,8 +133,21 @@ start_process (void * arguments)
    This function will be implemented in problem 2-2.  For now, it
    does nothing. */
 int
-process_wait (tid_t child_tid UNUSED) 
+process_wait (tid_t child_tid) 
 {
+  // printf("Parent %d waiting on %d", thread_current()->tid, child_tid);
+  struct thread * child = find_process_by_id(child_tid);
+
+  // TODO: check if: TID not valid, not child of parent, or if 
+  // process_wait was already called for TID 
+
+  if(!child_tid || child->parent_id != thread_current()->tid || child->waited_on) {
+    return -1;
+  }
+  child->waited_on = true;
+  thread_block();
+  while(child->exit_status != THREAD_DYING) {}
+  
   return -1;
 }
 
