@@ -145,9 +145,10 @@ process_wait (tid_t child_tid)
     return -1;
   }
   child->waited_on = true;
+  enum intr_level old_lvl = intr_disable(); // disable interrupt
   thread_block();
-  while(child->exit_status != THREAD_DYING) {}
-  
+  while(child->exit_status != THREAD_DYING) {} // TODO: Make it wait for real
+  intr_set_level(old_lvl); // enable interrupts again
   return -1;
 }
 

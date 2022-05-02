@@ -211,6 +211,9 @@ tid_t thread_create(const char * name, int priority, thread_func * function, voi
     /* Initialize thread. */
     init_thread(t, name, priority);
     tid = t->tid = allocate_tid();
+    // TODO: Setup parent-child relationship
+    t->parent_id = thread_current()->tid;
+    t->waited_on = false;
 
     /* Prepare thread for first run by initializing its stack.
        Do this atomically so intermediate values for the 'stack'
@@ -476,10 +479,6 @@ static void init_thread(struct thread * t, const char * name, int priority) {
     t->exit_status = 0;
     strlcpy(t->name, name, sizeof t->name);
     t->stack = (uint8_t *)t + PGSIZE;
-
-    // TODO: Setup parent-child relationship
-    t->parent_id = thread_current()->tid;
-    t->waited_on = false;
 
     if (thread_mlfqs)
         t->priority = calculate_priority(0, 0);
