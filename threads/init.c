@@ -22,6 +22,7 @@
 #include "threads/palloc.h"
 #include "threads/pte.h"
 #include "threads/thread.h"
+#include "threads/synch.h"
 #ifdef USERPROG
 #include "userprog/process.h"
 #include "userprog/exception.h"
@@ -285,7 +286,10 @@ run_task (char **argv)
   
   printf ("Executing '%s':\n", task);
 #ifdef USERPROG
-  process_wait (process_execute (task));
+  struct semaphore load_sema;
+  sema_init(&load_sema, 0);
+  process_wait (process_execute (task, &load_sema));
+  sema_down(&load_sema);
 #else
   run_test (task);
 #endif

@@ -6,6 +6,7 @@
 #include "threads/thread.h"
 #include "threads/vaddr.h"
 #include "threads/palloc.h"
+#include "threads/synch.h" // Project 5
 #include "userprog/process.h"
 #include "devices/shutdown.h"
 
@@ -79,7 +80,14 @@ syscall_wait (struct intr_frame *f)
 static void
 syscall_exec(struct intr_frame * f) {
   // TODO
+  // parent must wait for child creation (successful or not) before returning from execs
   int *stack = f->esp;
   const char * file = *(stack+1);
-  f->eax = process_execute(file);
+  struct semaphore load_sema;
+  int ret;
+
+  sema_init(&load_sema, 0);
+  ret = process_execute(file, &load_sema);
+  sema_down(&load_sema);
+  f->eax = ret;
 }

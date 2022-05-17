@@ -108,6 +108,7 @@ struct thread
     int exit_status;                    /* Project 4 - Status passed to exit() */
     struct thread* parent;              /* Parent thread */
     bool parent_waiting;                /* True if parent is waiting */
+    
 #endif
 
     int64_t wakeup_at_tick;

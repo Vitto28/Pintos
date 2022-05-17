@@ -17,6 +17,7 @@
 #include "threads/palloc.h"
 #include "threads/thread.h"
 #include "threads/vaddr.h"
+#include "threads/synch.h" // project 5
 
 // Pintos is a 32-bit (4-byte pointer) OS
 #define POINTER_LENGTH        4
@@ -90,7 +91,7 @@ static bool load (const char *cmdline, void (**eip) (void), void **esp);
    before process_execute() returns.  Returns the new process's
    thread id, or TID_ERROR if the thread cannot be created. */
 tid_t
-process_execute (const char * command)
+process_execute (const char * command, struct semaphore * load_sema)
 {
   char * cmd_copy;
   tid_t tid;
@@ -99,13 +100,15 @@ process_execute (const char * command)
      Otherwise there's a race between the caller and load(). */
   cmd_copy = palloc_get_page (0);
   if (cmd_copy == NULL)
-    return TID_ERROR;
+    tid = TID_ERROR;
   strlcpy (cmd_copy, command, PGSIZE);
 
   /* Create a new thread to execute FILE_NAME. */
   tid = thread_create (command, PRI_DEFAULT, start_process, cmd_copy);
   if (tid == TID_ERROR)
     palloc_free_page (cmd_copy);
+  
+  sema_up(load_sema);
   return tid;
 }
 
