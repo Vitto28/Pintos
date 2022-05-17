@@ -86,6 +86,8 @@ parse_args_onto_stack (void ** pp_stack_top, char * command)
 static thread_func start_process NO_RETURN;
 static bool load (const char *cmdline, void (**eip) (void), void **esp);
 
+static struct semaphore * load_semaphore; 
+
 /* Starts a new thread running a user program loaded from
    FILENAME.  The new thread may be scheduled (and may even exit)
    before process_execute() returns.  Returns the new process's
@@ -95,12 +97,13 @@ process_execute (const char * command, struct semaphore * load_sema)
 {
   char * cmd_copy;
   tid_t tid;
+  load_semaphore = load_sema;
 
   /* Make a copy of COMMAND.
      Otherwise there's a race between the caller and load(). */
   cmd_copy = palloc_get_page (0);
   if (cmd_copy == NULL)
-    tid = TID_ERROR;
+    return TID_ERROR;
   strlcpy (cmd_copy, command, PGSIZE);
 
   /* Create a new thread to execute FILE_NAME. */
@@ -108,7 +111,6 @@ process_execute (const char * command, struct semaphore * load_sema)
   if (tid == TID_ERROR)
     palloc_free_page (cmd_copy);
   
-  sema_up(load_sema);
   return tid;
 }
 
@@ -133,16 +135,29 @@ start_process (void * command)
   success = load (file_name, &if_.eip, &if_.esp);
 
   /* If load failed, quit. */
-  if (!success)
-  {
-    palloc_free_page (command);
-    thread_exit ();
-  }
-  else
-  {
+  // if (!success)
+  // {
+  //   palloc_free_page (command);
+  //   thread_exit ();
+  // }
+  // else
+  // {
+  //   parse_args_onto_stack(&if_.esp, command); // parse args, push onto stack
+  //   palloc_free_page (command);
+  // }
+
+  thread_current()->load_success = success;
+
+  sema_up(load_semaphore);
+  if(success) {
     parse_args_onto_stack(&if_.esp, command); // parse args, push onto stack
-    palloc_free_page (command);
   }
+  palloc_free_page(command);
+  if(!success) {  /* If load failed, quit. */
+    thread_exit();
+  }
+
+  // sema_up(load_semaphore);
 
   /* Start the user process by simulating a return from an
      interrupt, implemented by intr_exit (in

@@ -69,9 +69,8 @@ syscall_write (struct intr_frame *f)
 }
 
 static void
-syscall_wait (struct intr_frame *f)
+syscall_wait (struct intr_frame *f) // TODO: doesnt work
 {
-  // TODO: doesnt work
   int *stack = f->esp;
   tid_t child_tid = *(stack+1);
   f->eax = process_wait(child_tid);
@@ -82,12 +81,16 @@ syscall_exec(struct intr_frame * f) {
   // TODO
   // parent must wait for child creation (successful or not) before returning from execs
   int *stack = f->esp;
-  const char * file = *(stack+1);
+  const char * file = (const char *)*(stack+1);
   struct semaphore load_sema;
-  int ret;
-
   sema_init(&load_sema, 0);
-  ret = process_execute(file, &load_sema);
+  int ret;
+  ret = process_execute(file, &load_sema); // assume this returns before load
   sema_down(&load_sema);
+  struct thread * child = thread_get_by_tid(ret);
+  if(child && !child->load_success) {
+    ret = TID_ERROR;
+  }
+
   f->eax = ret;
 }

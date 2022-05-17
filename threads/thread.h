@@ -108,6 +108,7 @@ struct thread
     int exit_status;                    /* Project 4 - Status passed to exit() */
     struct thread* parent;              /* Parent thread */
     bool parent_waiting;                /* True if parent is waiting */
+    bool load_success;                  /* Project 5: result of load() */
     
 #endif
 
