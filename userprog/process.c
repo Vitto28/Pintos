@@ -137,7 +137,7 @@ start_process (void * command)
   }
   else
   {
-    parse_args_onto_stack(&if_.esp, command);
+    parse_args_onto_stack(&if_.esp, command); // parse args, push onto stack
     palloc_free_page (command);
   }
 
@@ -168,7 +168,9 @@ process_wait (tid_t child_tid)
   enum intr_level old_level = intr_disable ();
 
   struct thread * child = thread_get_by_tid(child_tid);
-  if (child == NULL || child->parent != thread_current())
+
+  // p killed, p not direct child of caller, caller already waiting for p
+  if (child == NULL || child->parent != thread_current() || child->parent_waiting)
     return -1;
 
   child->parent_waiting = true;

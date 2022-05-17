@@ -75,8 +75,8 @@ exit (int status)
   NOT_REACHED ();
 }
 
-pid_t
-exec (const char *file)
+pid_t // id of new process
+exec (const char *file) // const char * cmd_line
 {
   return (pid_t) syscall1 (SYS_EXEC, file);
 }

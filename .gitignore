@@ -11,6 +11,7 @@ examples/**/*.a
 *.swp
 .cproject
 .project
+.log
 
 # Prerequisites
 *.d

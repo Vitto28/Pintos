@@ -105,7 +105,7 @@ struct thread
 #ifdef USERPROG
     /* Owned by userprog/process.c. */
     uint32_t * pagedir;                 /* Page directory. */
-    int exit_status;                    /* Status passed to exit() */
+    int exit_status;                    /* Project 4 - Status passed to exit() */
     struct thread* parent;              /* Parent thread */
     bool parent_waiting;                /* True if parent is waiting */
 #endif
