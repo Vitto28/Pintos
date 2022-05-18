@@ -72,7 +72,7 @@ static void
 syscall_wait (struct intr_frame *f) // TODO: doesnt work
 {
   int *stack = f->esp;
-  tid_t child_tid = (tid_t) *(stack+1);
+  tid_t child_tid = *(stack+1);
   f->eax = process_wait(child_tid);
 }
 
