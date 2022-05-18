@@ -288,8 +288,9 @@ run_task (char **argv)
 #ifdef USERPROG
   struct semaphore load_sema;
   sema_init(&load_sema, 0);
-  process_wait (process_execute (task, &load_sema));
-  sema_down(&load_sema);
+  struct semaphore exit_sema;
+  sema_init(&exit_sema, 0);
+  process_wait (process_execute (task, &load_sema, &exit_sema));
 #else
   run_test (task);
 #endif

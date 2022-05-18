@@ -87,17 +87,19 @@ static thread_func start_process NO_RETURN;
 static bool load (const char *cmdline, void (**eip) (void), void **esp);
 
 static struct semaphore * load_semaphore; 
+static struct semaphore * exit_semaphore; 
 
 /* Starts a new thread running a user program loaded from
    FILENAME.  The new thread may be scheduled (and may even exit)
    before process_execute() returns.  Returns the new process's
    thread id, or TID_ERROR if the thread cannot be created. */
 tid_t
-process_execute (const char * command, struct semaphore * load_sema)
+process_execute (const char * command, struct semaphore * load_sema, struct semaphore * exit_sema)
 {
   char * cmd_copy;
   tid_t tid;
   load_semaphore = load_sema;
+  exit_semaphore = exit_sema;
 
   /* Make a copy of COMMAND.
      Otherwise there's a race between the caller and load(). */
@@ -154,6 +156,7 @@ start_process (void * command)
   }
   palloc_free_page(command);
   if(!success) {  /* If load failed, quit. */
+    sema_up(exit_semaphore);
     thread_exit();
   }
 

@@ -82,15 +82,23 @@ syscall_exec(struct intr_frame * f) {
   // parent must wait for child creation (successful or not) before returning from execs
   int *stack = f->esp;
   const char * file = (const char *)*(stack+1);
+  if (!(file && is_user_vaddr(file) && pagedir_get_page(thread_current()->pagedir, file))){
+      f->eax = -1;
+      return;
+  }
   struct semaphore load_sema;
   sema_init(&load_sema, 0);
+  struct semaphore exit_sema;
+  sema_init(&exit_sema, 0);
   int ret;
-  ret = process_execute(file, &load_sema); // assume this returns before load
+  ret = process_execute(file, &load_sema, &exit_sema); // assume this returns before load
   sema_down(&load_sema);
   struct thread * child = thread_get_by_tid(ret);
   if(child && !child->load_success) {
     ret = TID_ERROR;
   }
-
+  if(!ret) {
+    sema_down(&exit_sema);
+  }
   f->eax = ret;
 }

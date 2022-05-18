@@ -5,7 +5,7 @@
 #include "threads/synch.h"
 
 // tid_t process_execute (const char *file_name);
-tid_t process_execute (const char *file_name, struct semaphore * load_sema);
+tid_t process_execute (const char *file_name, struct semaphore * load_sema, struct semaphore * exit_sema);
 int process_wait (tid_t);
 void process_exit (void);
 void process_activate (void);
