@@ -97,7 +97,7 @@ syscall_exec(struct intr_frame * f) {
   if(child && !child->load_success) {
     ret = TID_ERROR;
   }
-  if(!ret) {
+  if(ret == TID_ERROR) {
     sema_down(&exit_sema);
   }
   f->eax = ret;

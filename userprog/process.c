@@ -156,7 +156,7 @@ start_process (void * command)
   }
   palloc_free_page(command);
   if(!success) {  /* If load failed, quit. */
-    sema_up(exit_semaphore);
+    // printf("gonna call thread_exit()\n");
     thread_exit();
   }
 
@@ -211,6 +211,7 @@ process_wait (tid_t child_tid)
 void
 process_exit (void)
 {
+  // printf("in process_exit()\n");
   struct thread *cur = thread_current ();
   uint32_t *pd;
 
@@ -234,9 +235,19 @@ process_exit (void)
   /* Print exit status, required for the tests. */
   printf("%s: exit(%d)\n", cur->name, cur->exit_status);
 
+  // printf("printed the printing biz\n");
+
   /* Unblock the parent, if the parent is waiting for this thread. */
-  if (cur->parent_waiting)
+  if (cur->parent_waiting) {
     thread_unblock(cur->parent);
+  }
+
+  // printf("parent unblocked\n");
+
+  if(exit_semaphore && exit_semaphore->value == 0) {
+    // printf("gonna up exit_sema\n");
+    sema_up(exit_semaphore);
+  }
 }
 
 /* Sets up the CPU for running user code in the current
