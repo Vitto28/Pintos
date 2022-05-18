@@ -72,14 +72,12 @@ static void
 syscall_wait (struct intr_frame *f) // TODO: doesnt work
 {
   int *stack = f->esp;
-  tid_t child_tid = *(stack+1);
+  tid_t child_tid = (tid_t) *(stack+1);
   f->eax = process_wait(child_tid);
 }
 
 static void
 syscall_exec(struct intr_frame * f) {
-  // TODO
-  // parent must wait for child creation (successful or not) before returning from execs
   int *stack = f->esp;
   const char * file = (const char *)*(stack+1);
   if (!(file && is_user_vaddr(file) && pagedir_get_page(thread_current()->pagedir, file))){

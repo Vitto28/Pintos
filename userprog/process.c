@@ -156,7 +156,6 @@ start_process (void * command)
   }
   palloc_free_page(command);
   if(!success) {  /* If load failed, quit. */
-    // printf("gonna call thread_exit()\n");
     thread_exit();
   }
 
@@ -171,6 +170,8 @@ start_process (void * command)
   asm volatile ("movl %0, %%esp; jmp intr_exit" : : "g" (&if_) : "memory");
   NOT_REACHED ();
 }
+
+static uint32_t exit_status;
 
 /* Waits for thread TID to die and returns its exit status.  If
    it was terminated by the kernel (i.e. killed due to an
@@ -199,7 +200,7 @@ process_wait (tid_t child_tid)
 
   intr_set_level (old_level);
 
-  return child->exit_status;
+  return exit_status;
 #else
   /* In case USERPROG was not defined (you can ignore/not implement this part). */
   return -1;
@@ -211,7 +212,6 @@ process_wait (tid_t child_tid)
 void
 process_exit (void)
 {
-  // printf("in process_exit()\n");
   struct thread *cur = thread_current ();
   uint32_t *pd;
 
@@ -233,19 +233,15 @@ process_exit (void)
     }
 
   /* Print exit status, required for the tests. */
+  exit_status = cur->exit_status;
   printf("%s: exit(%d)\n", cur->name, cur->exit_status);
-
-  // printf("printed the printing biz\n");
 
   /* Unblock the parent, if the parent is waiting for this thread. */
   if (cur->parent_waiting) {
     thread_unblock(cur->parent);
   }
 
-  // printf("parent unblocked\n");
-
   if(exit_semaphore && exit_semaphore->value == 0) {
-    // printf("gonna up exit_sema\n");
     sema_up(exit_semaphore);
   }
 }
